@@ -10,7 +10,7 @@
 
   <script>
     async function startPayment() {
-      const res = await fetch("/create-payment");
+const res = await fetch("https://viva-smart-checkout-backend.onrender.com/create-payment");
       const data = await res.json();
       if (data.redirectUrl) {
         window.location.href = data.redirectUrl;

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Viva Smart Checkout Test</title>
+</head>
+<body>
+  <h2>Pay with Viva</h2>
+  <button onclick="startPayment()">Pay Now</button>
+
+  <script>
+    async function startPayment() {
+      const res = await fetch("/create-payment");
+      const data = await res.json();
+      if (data.redirectUrl) {
+        window.location.href = data.redirectUrl;
+      } else {
+        alert("Error creating payment");
+      }
+    }
+  </script>
+</body>
+</html>
